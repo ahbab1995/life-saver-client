@@ -9,7 +9,7 @@ const Landing = () => {
       </h1>
       <div className="hero  ">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={banner} className=" rounded-lg " />
+          <img src={banner} className=" rounded-lg " alt="banner"/>
           <div>
             <h1 className="text-5xl ">Box Office News!</h1>
             <p className="py-6">
@@ -17,7 +17,7 @@ const Landing = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <Link to='/allproduct' className="btn btn-primary">Get Started</Link>
+            <Link to='/allproduct' className="btn btn-primary">GO TO SHOP</Link>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ const Landing = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary">GO TO SHOP</button>
           </div>
         </div>
       </div>

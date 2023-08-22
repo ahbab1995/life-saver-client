@@ -58,8 +58,8 @@ const Navbar = () => {
             <span className="badge">New</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+       
+        <li><Link to='/login'>Login</Link></li>
       </ul>
     </div>
         <button className="btn btn-ghost btn-circle">
