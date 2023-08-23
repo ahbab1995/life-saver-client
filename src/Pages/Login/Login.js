@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import auth from './../../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
+
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  if (user) {
+    console.log(user)
+  }
+
   return (
     <div>
       <div className=" flex justify-center items-center min-h-screen bg-base-200">
@@ -40,7 +48,7 @@ const Login = () => {
            </div>
            <p><small>New to Life Sever? <Link className="text-primary" to="/signup">Create new account</Link></small></p>
            <div className="divider">OR</div>
-           <button className='btn btn-primary btn-outline rounded-lg'>
+           <button className='btn btn-primary btn-outline rounded-lg' onClick={()=>signInWithGoogle()}>
            Continue with google
          </button>
          </div>
