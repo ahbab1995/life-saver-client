@@ -45,23 +45,6 @@ const Navbar = () => {
         </p>
       </div>
       <div className="navbar-end">
-      <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-8 rounded-full">
-          <img  src={user} />
-        </div>
-      </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-       
-        <li><Link to='/login'>Login</Link></li>
-      </ul>
-    </div>
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
             <svg
@@ -81,6 +64,28 @@ const Navbar = () => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-8 rounded-full">
+              <img src={user} />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a className="justify-between">
+                Profile
+                <span className="badge">New</span>
+              </a>
+            </li>
+
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
