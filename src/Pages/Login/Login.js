@@ -1,18 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import auth from "./../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+] = useSignInWithEmailAndPassword(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
-  if (user) {
-    console.log(user);
-  }
+
+  let signInError;
+
+   if (loading || gLoading) {
+        return <Loading></Loading>
+    }
+
+    if(error || gError){
+        signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
+    }
 
   const handelLogin = (data) =>{
-    console.log(data)
+    signInWithEmailAndPassword(data.email, data.password);
   }
 
   return (
@@ -22,6 +36,7 @@ const Login = () => {
           <div className="card-body">
             <h1 className="text-center text-2xl font-medium">Login</h1>
             <form onSubmit={handleSubmit(handelLogin)}>
+            {signInError}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
