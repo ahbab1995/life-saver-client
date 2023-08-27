@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "./../../firebase.init";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -19,12 +19,20 @@ const Login = () => {
 
   let signInError;
 
+  
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
    if (loading || gLoading) {
         return <Loading></Loading>
     }
 
     if(error || gError){
         signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
+    }
+
+    if (user || gUser) {
+      navigate(from, { replace: true });
     }
 
   const handelLogin = (data) =>{

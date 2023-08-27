@@ -1,0 +1,32 @@
+[
+    {
+      "_id": 1,
+      "name": "Teeth Orthodontics",
+      "price": 100
+    },
+    {
+      "_id": 2,
+      "name": "Cosmetic Dentistry",
+     "price": 200
+    },
+    {
+      "_id": 3,
+      "name": "Teeth Cleaning",
+       "price": 250 
+    },
+    {
+      "_id": 4,
+      "name": "Cavity Protection",
+      "price": 300
+    },
+    {
+      "_id": 5,
+      "name": "Pediatric Dental",
+      "price": 150
+    },
+    {
+      "_id": 6,
+      "name": "Oral Surgery",
+      "price":250  
+    }
+  ]

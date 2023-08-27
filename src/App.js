@@ -5,6 +5,7 @@ import Allproduct from "./Pages/Allproduct";
 import About from "./Pages/About";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Login/Signup";
+import RequireAuth from "./Pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -12,7 +13,14 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/allproduct" element={<Allproduct></Allproduct>}></Route>
+        <Route
+          path="/allproduct"
+          element={
+            <RequireAuth>
+              <Allproduct></Allproduct>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
