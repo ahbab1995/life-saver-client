@@ -26,7 +26,7 @@ const Landing = () => {
                 <h2 className="card-title">{product.name}</h2>
                 <p> {}</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary">Add to Card</button>
                 </div>
               </div>
             </div>

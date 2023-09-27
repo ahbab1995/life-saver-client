@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import banner from "../assets/pexels.png.jpg";
+import { Link } from "react-router-dom";
 const Allproduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -20,7 +21,7 @@ const Allproduct = () => {
                 <h2 className="card-title">{product.name}</h2>
                 <p> {}</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <Link to='/card' className="btn btn-primary">Add to Card</Link>
                 </div>
               </div>
             </div>
