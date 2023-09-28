@@ -2,6 +2,8 @@ import React from "react";
 import banner from "../../assets/pexels.png.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Landing = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +28,7 @@ const Landing = () => {
                 <h2 className="card-title">{product.name}</h2>
                 <p> {}</p>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Add to Card</button>
+                  <button className="btn btn-primary">Add to Card <FontAwesomeIcon className="w-5" icon={faCartShopping} /></button>
                 </div>
               </div>
             </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import banner from "../assets/pexels.png.jpg";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 const Allproduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -21,7 +23,7 @@ const Allproduct = () => {
                 <h2 className="card-title">{product.name}</h2>
                 <p> {}</p>
                 <div className="card-actions justify-start">
-                  <Link to='/card' className="btn btn-primary">Add to Card</Link>
+                  <Link to='/card' className="btn btn-primary">Add to Card <FontAwesomeIcon className="w-5" icon={faCartShopping} /></Link>
                 </div>
               </div>
             </div>
