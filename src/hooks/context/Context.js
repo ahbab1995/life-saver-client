@@ -1,7 +1,33 @@
-import React from 'react'
+import { createContext, useContext, useEffect, useReducer, useState } from "react"
+import { cartReducer } from "./Reducers";
 
-export const Context = () => {
+
+
+const Card = createContext()
+
+
+
+const Context = ({ children }) => {
+
+  const [products] = useState([]);
+  useEffect(() => {
+    fetch("products.json")
+      .then((res) => res.json())
+      
+  }, []);
+
+  
+const [state, dispatch] = useReducer(cartReducer, {
+  products: products,
+  card: [],
+});
+
   return (
-    <div></div>
+    <Card.Provider value={{ state, dispatch }}>{ children }</Card.Provider>
   )
 }
+export const CartState = () => {
+  return useContext(Card);
+};
+
+export default Context
