@@ -17,7 +17,7 @@ const SingleProduct = ({ product }) => {
               </figure>
               <div className="card-body items-center text-center">
                 <h2 className="card-title">{product.name}</h2>
-                <p> {}</p>
+                <p> TK {product.price}</p>
           <div className="card-actions justify-start">
           {card?.some((p) => p._id === product._id) ? (
             <Link

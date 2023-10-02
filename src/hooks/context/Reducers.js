@@ -14,7 +14,8 @@ export const cartReducer = (state, action) => {
           c._id === action.payload._id ? (c.qty = action.payload.qty) : c.qty
         ),
       };
-    default:
+     
+      default:
       return state;
   }
 };

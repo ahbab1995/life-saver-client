@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import user from "../../assets/user.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
-
+import { CartState } from "../../hooks/context/Context";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -14,8 +14,14 @@ const Navbar = () => {
   const logout = () => {
     signOut(auth);
   };
+
+  const {
+    state: { card },
+    dispatch,
+  } = CartState();
+
   return (
-    <div className="navbar bg-base-600 px-3">
+    <div className="navbar bg-base-600 px-3 ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -34,7 +40,7 @@ const Navbar = () => {
               />
             </svg>
           </label>
-          
+
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
@@ -57,16 +63,19 @@ const Navbar = () => {
         </p>
       </div>
       <div className="navbar-end">
+        <Link to="/card">
         <button className="btn btn-ghost btn-circle">
+          
           <div className="indicator">
-          <FontAwesomeIcon className="w-5" icon={faCartShopping} />
-            <span className="badge badge-xs badge-primary indicator-item"></span>
+          <FontAwesomeIcon className="w-8" icon={faCartShopping} />
+            <span className="badge badge-xs badge-primary indicator-item">{ card.length }</span>
           </div>
         </button>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className=" rounded-full">
-            <FontAwesomeIcon icon={faUser} />
+        </Link>
+        <div className="dropdown dropdown-end ml-5">
+          <label tabIndex={0} className="btn btn-circle avatar">
+            <div className=" rounded-full w-5">
+              <FontAwesomeIcon icon={faUser} />
             </div>
           </label>
           <ul
