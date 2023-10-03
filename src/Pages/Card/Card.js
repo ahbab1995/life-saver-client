@@ -95,7 +95,7 @@ const Card = () => {
         </tfoot>
       </table>
       <div><h4>Total: TK {total}</h4></div>
-      <button type="button" className="btn btn-primary" disabled={card.length === 0}>
+      <button type="button" className="btn btn-primary mt-3" disabled={card.length === 0}>
           Proceed to Checkout
         </button>
     </div>

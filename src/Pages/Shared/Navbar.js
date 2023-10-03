@@ -59,7 +59,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <p className=" normal-case text-3xl font-serif">
-          Life <span>Saver</span>
+         <Link to='/'> Life <span>Saver</span></Link>
         </p>
       </div>
       <div className="navbar-end">
