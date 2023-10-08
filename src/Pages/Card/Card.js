@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { CartState } from "../../hooks/context/Context";
 import banner from "../../assets/pexels.png.jpg";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const {
@@ -86,18 +87,15 @@ const Card = () => {
         {/* foot */}
         <tfoot>
           <tr>
-            <th></th>
-            <th>Name</th>
-          
-           
-            <th></th>
+            
           </tr>
         </tfoot>
       </table>
-      <div><h4>Total: TK {total}</h4></div>
-      <button type="button" className="btn btn-primary mt-3" disabled={card.length === 0}>
-          Proceed to Checkout
-        </button>
+      <div><h4 className="font-bold mt-5">Total: TK {total}</h4></div>
+        
+      <Link to='/checkout' type="button" className="btn btn-primary mt-3" disabled={card.length === 0}>
+          Checkout
+        </Link>
     </div>
   );
 };

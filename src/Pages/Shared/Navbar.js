@@ -59,18 +59,22 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <p className=" normal-case text-3xl font-serif">
-         <Link to='/'> Life <span>Saver</span></Link>
+          <Link to="/">
+            {" "}
+            Life <span>Saver</span>
+          </Link>
         </p>
       </div>
       <div className="navbar-end">
         <Link to="/card">
-        <button className="btn btn-ghost btn-circle">
-          
-          <div className="indicator">
-          <FontAwesomeIcon className="w-8" icon={faCartShopping} />
-            <span className="badge badge-xs badge-primary indicator-item">{ card.length }</span>
-          </div>
-        </button>
+          <button className="btn btn-ghost btn-circle">
+            <div className="indicator">
+              <FontAwesomeIcon className="w-8" icon={faCartShopping} />
+              <span className="badge badge-xs badge-primary indicator-item">
+                {card.length}
+              </span>
+            </div>
+          </button>
         </Link>
         <div className="dropdown dropdown-end ml-5">
           <label tabIndex={0} className="btn btn-circle avatar">
@@ -83,8 +87,8 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
-                Profile
+              <a  className="justify-between  text-lg" >
+                {user?.displayName}
                 <span className="badge">New</span>
               </a>
             </li>
