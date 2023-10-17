@@ -9,6 +9,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Signup = () => {
 
@@ -29,6 +30,8 @@ const [updateProfile, updating, updaterror] = useUpdateProfile(auth);
     handleSubmit,
   } = useForm();
 
+  const [token] = useToken(user || gUser)
+
   const navigate = useNavigate()
 
   let signInError;
@@ -37,6 +40,8 @@ const [updateProfile, updating, updaterror] = useUpdateProfile(auth);
     return <Loading></Loading>;
   }
 
+  
+
   if (error || gError || updaterror) {
     signInError = (
       <p className="text-red-500">
@@ -44,13 +49,18 @@ const [updateProfile, updating, updaterror] = useUpdateProfile(auth);
       </p>
     );
   }
+ 
 
   const handelSignup = async(data) => {
    
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName:data.Name  })
-    navigate('/')
+   
   };
+  // if (token) {
+  //   navigate('/')
+  // }
+  
   return (
     <div>
       <div className=" flex justify-center items-center min-h-screen bg-base-200">

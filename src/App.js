@@ -8,6 +8,8 @@ import Signup from "./Pages/Login/Signup";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Card from "./Pages/Card/Card";
 import Checkout from "./Pages/Card/Checkout";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import User from "./Pages/Dashboard/User";
 
 function App() {
   return (
@@ -20,6 +22,16 @@ function App() {
           element={
             <RequireAuth>
               <Allproduct></Allproduct>
+            </RequireAuth>
+          }
+        ></Route>
+         <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard>
+              <Route path="/user" element={<User></User>}></Route>
+              </Dashboard>
             </RequireAuth>
           }
         ></Route>

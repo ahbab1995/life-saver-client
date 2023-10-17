@@ -52,6 +52,13 @@ const Navbar = () => {
               <Link to="/allproduct">All Product</Link>
             </li>
             <li>
+              {user && (
+                <Link className="font-medium " to="/dashboard">
+                  Dashboard
+                </Link>
+              )}
+            </li>
+            <li>
               <Link to="/about">About Us</Link>
             </li>
           </ul>
@@ -87,7 +94,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a  className="justify-between  text-lg" >
+              <a className="justify-between  text-lg">
                 {user?.displayName}
                 <span className="badge">New</span>
               </a>
