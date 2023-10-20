@@ -10,6 +10,8 @@ import Card from "./Pages/Card/Card";
 import Checkout from "./Pages/Card/Checkout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import User from "./Pages/Dashboard/User";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -25,16 +27,13 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-         <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard>
-              <Route path="/user" element={<User></User>}></Route>
-              </Dashboard>
-            </RequireAuth>
+        <Route
+          path="dashboard"
+          element={ <RequireAuth> <Dashboard></Dashboard> </RequireAuth>
           }
-        ></Route>
+        >
+           <Route path="user" element={<User></User>}></Route>
+        </Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/card" element={<Card></Card>}></Route>
         <Route
@@ -48,6 +47,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
