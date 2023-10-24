@@ -1,3 +1,5 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { toast } from "react-toastify";
 
@@ -37,7 +39,7 @@ const Userlist = ({ user, refetch }) => {
         }
       </td>
       <td>
-        <button class="btn btn-xs">Remove User</button>
+        <div class="btn w-10 bg-red-700"><FontAwesomeIcon className="" icon={faTrashCan} /></div>
       </td>
     </tr>
   );

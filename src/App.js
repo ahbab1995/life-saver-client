@@ -13,6 +13,7 @@ import User from "./Pages/Dashboard/User";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAdmin from "./Pages/Login/RequireAdmin";
+import AddProduct from "./Pages/Dashboard/AddProduct";
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
           element={ <RequireAuth> <Dashboard></Dashboard> </RequireAuth>
           }
         >
-           <Route path="user" element={<RequireAdmin><User></User></RequireAdmin>}></Route>
+          <Route path="user" element={<RequireAdmin><User></User></RequireAdmin>}></Route>
+          <Route path="addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
         </Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/card" element={<Card></Card>}></Route>
