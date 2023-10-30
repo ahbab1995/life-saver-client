@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { toast } from "react-toastify";
 
-const Userlist = ({ user, refetch }) => {
-    const { email, role } = user;
+const Userlist = ({ user, index, refetch }) => {
+ 
+    const { email, role, } = user;
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
@@ -26,20 +27,39 @@ const Userlist = ({ user, refetch }) => {
                 }
 
             })
-    }
+  }
+  
+  const Delete = (email) => {
+    
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: 'DELETE',
+      headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+  })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data);
+          if (data.deletedCount) {
+              toast.success(`User is deleted.`)
+              
+              refetch();
+          }
+      })
+  }
   return (
     <tr>
-      <th>1</th>
+      <th>{index +1  }</th>
       <td>{email}</td>
       <td>
         {
-          role !== 'admin' && <button  onClick={makeAdmin} class="btn btn-xs">
+          role !== 'admin' && <button  onClick={makeAdmin} className="btn btn-xs">
             Make Admin
           </button>
         }
       </td>
       <td>
-        <div class="btn w-10 bg-red-700"><FontAwesomeIcon className="" icon={faTrashCan} /></div>
+        <div className="btn w-10 bg-red-700" onClick={()=>{Delete(email)}}><FontAwesomeIcon className="" icon={faTrashCan} /></div>
       </td>
     </tr>
   );

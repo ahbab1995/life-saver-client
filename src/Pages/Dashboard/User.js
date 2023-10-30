@@ -33,7 +33,7 @@ const User = () => {
           </thead>
           <tbody>
             {users.map((user,index) => (
-              <Userlist key={user.index} user={user} refetch={refetch}></Userlist>
+              <Userlist key={user._id} index={index} user={user} refetch={refetch}></Userlist>
             ))}
           </tbody>
         </table>
