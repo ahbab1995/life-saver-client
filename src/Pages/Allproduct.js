@@ -5,7 +5,7 @@ import SingleProduct from "./Shared/SingleProduct";
 const Allproduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("http://localhost:5000/addproduct")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
