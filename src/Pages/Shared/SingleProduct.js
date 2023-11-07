@@ -16,7 +16,8 @@ const SingleProduct = ({ product }) => {
                 <img src={product.img} alt="Shoes" className="rounded-xl" />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title">{product.name}</h2>
+          <h2 className="card-title">{product.name}</h2>
+        
                 <p> TK {product.price}</p>
           <div className="card-actions justify-start">
           {card?.some((p) => p._id === product._id) ? (
@@ -44,14 +45,18 @@ const SingleProduct = ({ product }) => {
                 >
                    <FontAwesomeIcon className="w-5" icon={faCartShopping} />
              Add to Cart
-            </Link>
-          )}
+                </Link>
+                
+            )}
+            
 
                   {/* <Link  className="btn btn-primary">
                     Add to Card{" "}
                     <FontAwesomeIcon className="w-5" icon={faCartShopping} />
                   </Link> */}
-                </div>
+          </div>
+          
+          <Link to="/payment" className="btn btn-primary">Buy Now</Link>
               </div>
             </div>
     );

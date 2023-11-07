@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import user from "../../assets/user.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { CartState } from "../../hooks/context/Context";
+import useAdmin from "../../hooks/useAdmin";
+import Loading from "./Loading";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [admin,setAdminLoading] = useAdmin(user);
 
   const logout = () => {
     signOut(auth);
@@ -19,6 +22,8 @@ const Navbar = () => {
     state: { card },
     dispatch,
   } = CartState();
+
+ 
 
   return (
     <div className="navbar bg-base-600 px-3 ">
@@ -52,7 +57,7 @@ const Navbar = () => {
               <Link to="/allproduct">All Product</Link>
             </li>
             <li>
-              {user && (
+              {admin && (
                 <Link className="font-medium " to="/dashboard">
                   Dashboard
                 </Link>
@@ -77,7 +82,8 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-          <label
+        {user && (
+            <label
             tabIndex={1}
             htmlFor="dashboard-drawer-2"
             className="btn btn-ghost lg:hidden"
@@ -96,7 +102,8 @@ const Navbar = () => {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
-          </label>
+          </label> 
+        )}
         </div>    
 
       <div className="navbar-end">

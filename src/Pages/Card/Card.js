@@ -25,10 +25,11 @@ const Card = () => {
         {/* head */}
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>Image</th>
+            <th>Product Name</th>
+           
             <th></th>
+            <th>Product Price</th>
           </tr>
         </thead>
         <tbody>
@@ -39,7 +40,7 @@ const Card = () => {
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
                     <div className=" w-20 h-20">
-                      <img src={banner} alt="Avatar Tailwind CSS Component" />
+                      <img src={product.img} alt="Avatar Tailwind CSS Component" />
                     </div>
                   </div>
                 </div>
@@ -74,6 +75,7 @@ const Card = () => {
                     }>
                   <FontAwesomeIcon icon={faTrash} size="2xl" />
                 </button>
+               
               </th>
             </tr>
           ))}
