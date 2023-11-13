@@ -95,7 +95,7 @@ const Card = () => {
       </table>
       <div><h4 className="font-bold mt-5">Total: TK {total}</h4></div>
         
-      <Link to='/checkout' type="button" className="btn btn-primary mt-3" disabled={card.length === 0}>
+      <Link to="/payment" type="button" className="btn btn-primary mt-3" disabled={card.length === 0}>
           Checkout
         </Link>
     </div>

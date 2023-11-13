@@ -4,17 +4,23 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const ProductRow = ({ product, index, refetch ,setDeletingProduct}) => {
-    const {_id, name, price, img } = product;
+    const {id, name, price, img } = product;
 
     const Delete = (_id) => {
-    
-        fetch(`http://localhost:5000/addproduct/${_id}`, {
+        const url = `http://localhost:5000/addproduct/${_id}`
+        console.log(url)
+        fetch(url, {
           method: 'DELETE',
           headers: {
               authorization: `Bearer ${localStorage.getItem('accessToken')}`
           }
       })
-          .then(res => res.json())
+          .then(res =>{
+            if (res.status === 403) {
+              toast.error("Failed to Make an admin");
+            }
+            return res.json();
+          })
           .then(data => {
               console.log(data);
               if (data.deletedCount) {
@@ -38,7 +44,7 @@ const ProductRow = ({ product, index, refetch ,setDeletingProduct}) => {
             <td>$ {price}</td>
        
         <td>
-            <label  onClick={() => Delete(_id)} for="delete-confirm-modal" class="btn btn-md btn-error"><FontAwesomeIcon className="" icon={faTrashCan} /></label>
+            <label  onClick={() => Delete(id)} for="delete-confirm-modal" class="btn btn-md btn-error"><FontAwesomeIcon className="" icon={faTrashCan} /></label>
         </td>
     </tr>
     );
