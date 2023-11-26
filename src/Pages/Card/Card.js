@@ -2,7 +2,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { CartState } from "../../hooks/context/Context";
-import banner from "../../assets/pexels.png.jpg";
+
 import { Link } from "react-router-dom";
 
 const Card = () => {

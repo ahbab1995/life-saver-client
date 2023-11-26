@@ -23,7 +23,7 @@ const Userlist = ({ user, index, refetch }) => {
         console.log(data);
         if (data.modifiedCount > 0) {
           refetch();
-          toast.success(`Successfully made an admin`);
+          toast.success(`Successfully make an admin`);
         }
       });
   };
@@ -63,9 +63,7 @@ const Userlist = ({ user, index, refetch }) => {
       <td>
         <div
           className="btn btn-md btn-error"
-          onClick={() => {
-            Delete(email);
-          }}
+          onClick={()=>Delete(email)}
         >
           <FontAwesomeIcon className="" icon={faTrashCan} />
         </div>

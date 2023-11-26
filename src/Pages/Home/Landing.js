@@ -17,9 +17,10 @@ const Landing = () => {
         Combinations for your adventures
       </h1>
       <div>
-        <div className="justify-items-center grid gap-5 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="justify-items-center grid gap-4 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 ">
           {products.map((product) => (
-            <SingleProduct product={product}></SingleProduct>
+           
+            <SingleProduct key={product._id}  product={product}></SingleProduct>
           ))}
         </div>
       </div>
