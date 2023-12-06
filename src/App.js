@@ -18,6 +18,7 @@ import ManageProduct from "./Pages/Dashboard/ManageProduct";
 import Payment from "./Pages/Payment/Payment";
 import Footer from "./Pages/Shared/Footer";
 
+
 function App() {
   return (
     <div>
@@ -51,6 +52,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+      
         <Route
           path="/payment"
           element={

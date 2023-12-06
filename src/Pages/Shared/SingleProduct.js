@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../../assets/pexels.png.jpg";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -47,9 +47,11 @@ const SingleProduct = ({ product }) => {
           )}
         </div>
 
+        <button product={product}>
         <Link to="/payment" className="btn btn-primary btn-sm ">
           Buy Now
         </Link>
+        </button> 
       </div>
     </div>
   );
