@@ -6,12 +6,14 @@ import { useQuery } from "react-query";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import Footer from "../Shared/Footer";
 
 const stripePromise = loadStripe(
   "pk_test_51OGnsHJMLcFNaSxTZ5X3XJbg64HGRT4rB5uzPUPDV1g5KRNLLBLjqAZYmSwHpPLb4gOpvb3rsZ4hdtSnbdRyhpc100eIfhpcEx"
 );
 
 const Payment = () => {
+
   const {
     state: { card },
   } = CartState();
@@ -52,6 +54,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

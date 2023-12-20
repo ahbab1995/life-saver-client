@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 import SingleProduct from "./Shared/SingleProduct";
+import Footer from "./Shared/Footer";
 const Allproduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -18,7 +19,9 @@ const Allproduct = () => {
           ))}
         </div>
       </div>
+      <Footer></Footer>
     </div>
+    
   );
 };
 

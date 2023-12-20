@@ -4,6 +4,7 @@ import Landing from './Landing';
 
 import Incredible from './Incredible';
 import Prosvideo from './Prosvideo';
+import Footer from '../Shared/Footer';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Landing></Landing>
             <Incredible></Incredible>
             <Prosvideo></Prosvideo>
+            <Footer></Footer>
         </div>
     );
 };
